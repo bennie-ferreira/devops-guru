@@ -1,16 +1,5 @@
 export default {
-    index: {
-        title: 'Inicio',
-        type: 'page',
-        sidebar: false,
-        theme: {
-            layout: 'full',
-            "sidebar": false,
-            "toc": false,
-            "breadcrumb": false
-        }
-    },
-    wellcome: 'Começo da jornada',
+    index: 'Começo da jornada',
     "architecture-design": 'Design e Arquitetura',
     "solutions-hacks": 'Soluções e Hacks',
     tools: 'Ferramentas',

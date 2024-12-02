@@ -1,14 +1,28 @@
 import { useConfig } from 'nextra-theme-docs'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import Supporters from './components/Supporters';
 
 const config: DocsThemeConfig = {
     logo: (
         <>
-            <span style={{ marginLeft: '.4em' }}> Devops Guru </span>
+            <span style={{ marginLeft: '.4em' }}> 💚 Devops Guru </span>
         </>
     ),
     project: {
         link: 'https://github.com/bennie-ferreira/devops-guru'
+    },
+    editLink: {
+        content: null,
+    },
+    feedback: {
+        content: null
+    },
+    sidebar: {
+        toggleButton: false,
+    },
+    toc: {
+        title: 'Tópicos',
+        // extraContent: <Supporters />,
     },
     head: function UseHead() {
         const { title } = useConfig()
@@ -24,6 +38,7 @@ const config: DocsThemeConfig = {
     footer: {
         content: 'Copyright © 2024 Devops Guru',
     },
+    docsRepositoryBase: 'https://github.com/bennie-ferreira/devops-guru',
     search: {
         placeholder: 'Search...',
     },
