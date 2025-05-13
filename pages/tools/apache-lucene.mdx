@@ -1,0 +1,155 @@
+# O motor por trás do Elasticsearch, Opensearch, Solr e outros.
+
+> _"Hoje a tecnologia permite obter dados de praticamente todas as nossas atividades, como se nossos sentidos se tornassem mais aguçados. 
+Pessoas e empresas podem então utilizar ferramentas para analisar esses dados a fim de fazer previsões, trabalhar melhor e competir com mais eficiência. 
+Esse é só o começo de uma era de ouro dos dados"_  
+> — **Doug Cutting**
+
+Já imaginou viver em mundo aonde a informação não tem o seu valor ? isso é praticamente impossivel
+já que vivemos hiperconectado nesta vasta rede de computadores ligados
+de ponto a ponto com os dados viajando em uma ponta a outra correndo na velocidade da luz em bits.
+
+E ainda mais que em 10 anos triplicou o número de dispositivos conectados à Internet e então só depois vieram novos conceitos e novas areas de estudos
+por causa do grande volume de informação, tudo é registrado cada acesso, cada log no seu sistema, cada mensagem que mandamos,
+mesmo criptografado ou não a informação está cravado bit a bit e o dado nunca vai perder o seu valor.
+
+Com esse tanto de informação veio a necessidade de pesquisar, busca o que se procura e recuperar dados com mais eficiencia, vivemos em uma era de ouro 
+dos dados, aonde a informação é o principal ativo de grandes empresas e corporações ao redor do mundo, as guerras ciberneticas travadas na deep web
+ou na web normal sempre tem o objetivo rouba informação, sem informação não somos nada, imagine você que usa os modelos de IA todo dia e mal sabe
+o quanto de informação e dados precisou para 
+treinar.
+
+Como diz o nosso saudoço colega Doug Cutting hoje a tecnologia permite obter dados de praticamente todas as nossas atividades, como se nossos sentidos se tornassem mais aguçados.
+Pessoas e empresas podem então utilizar ferramentas para analisar esses dados a fim de fazer previsões, trabalhar melhor e competir com mais eficiência. 
+Esse é só o começo de uma era de ouro dos dados!
+
+## (RI) Recuperação da Informação
+
+RI (Retrivier Information) é uma área da computação cientifica que tem como principal tarefa de indentificar recuperar 
+de forma automatica a informação (normalmente contida por documentos textuais, registros...) esses documentos pode ser qualquer
+tipo de mídia (texto, imagem, som)
+
+A necessidade de informação pode ser especificada na forma de uma consulta de pesquisa. 
+No caso na RI, as consultas podem ser baseadas em texto completo ou outro tipo de indexação baseada em conteúdo. 
+
+O objetivo é trazer melhores respostas, pois os sistemas tentam modela o significado do que está sendo buscado
+Todo sistema de recuperação da informação é também um sistema de recuperação de dados, mas o contrario nem sempre é verdade
+
+A ideia de usar computadores para pesquisar informações relevantes foi popularizado por **Vannevar Bush** em 1945 em um artigo chamado **As We May Think**
+na qual foi inspirado em patentes para uma máquina estatistica registrado por **Emanuel Golberg**, Bush acreditava que todo conhecimento
+humano pode ser coletado de uma forma mais acessivel e que na qual ele chamou de O Memex (amálgama de memory + index) foi uma máquina visionária imaginada para auxiliar a memória e guardar conhecimentos. 
+
+Esse video é uma ilustração da maquina Memex de **Vannevar Bush**
+
+<iframe width="100%"
+    height="415px"
+    src="https://www.youtube.com/embed/c539cK58ees" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+/>
+
+
+Observando o funcionamento da mente humana, segundo ele, operando sempre por meio de associações, Bush imaginou e descreveu de maneira detalhada uma máquina capaz de estocar montanhas de informação, para posterior e rápida recuperação.
+
+Ao longo dos anos o Departamento de Defesa dos EUA, juntamente com o [**Instituto Nacional de Padrões e Tecnonologia (NIST)**](https://www.nist.gov),
+copatrocinou a [**Conferencia de Recuperação de Texto (TREC)**](https://trec.nist.gov) que é ativo até hoje e que mais tarde trouxe grandes inovações na area de RI juntamente com algoritmos
+que fora evoluido e até se tornarem quase que um padrão no mercado mais tarde.
+
+Varios inovações aconteceram pelo caminho ao longo do tempo até chegarmos nos anos 90 com a ascensão do
+World Wide Web que transformou a recuperação de informações em outro patamar com varios sites de busca como AltaVista como 
+o primeiro banco de dados de texto completo pesquisável na internet com uma interface simples mas funcional
+e com consultas basicas com paginações e filtros aonde começou fazer sucesso, mais tarde veio Yahoo que ofereciam na epoca 
+recuperação baseada em palavras-chave, tanto Yahoo e o AltaVista eram limitados em escala e não tinha refinamento de classificação e outros tipos de consultas mais 
+relevantes para os usuários e 4 anos depois veio o o grandiosso Google abalando a web com o algoritmo **PageRank** que é usado até hoje
+com um sistema de hiperlinks da web para avaliação de importancia melhora na classificação de relevância.
+
+Anos 2000 os sistemas de busca na web evoluiram com varias tecnicas de aprendizado de maquina e depois Google passou a usar os dados 
+dos proprios usuários para melhorar suas pesquisa e consultas utilizando para buscas com relevencia afim de entender um contexto maior e 
+abrangente saindo de uma pesquisa tão literal e corrigindo problemas de ambiguidades em suas consultas.
+
+No ano de 2018 começaram a implementar modelos de aprendizado de maquina para RI sendo um divisor de águas no mercado.
+
+Hoje a RI é usado em varias areas, como segunrança da informação, IA, sistemas de buscas entre outros que visam usar as suas bases conceituais 
+e conhecimento
+
+## Metricas para avaliação de RI
+### Precisão e Revocação
+### P@K (Precision at K)
+### CG (Cumulative Gain (Ganho Cumulativo))
+### DCG (Discounted Cumulative Gain)
+### NDCG (Normalized DCG)
+### MRR (Mean Recriprocal Rank)
+### MAP (Mean Average Precision)
+### BPREF (Binary Preference)
+### UDCG (Unnormalized DCG)
+
+### Observações importantes
+
+A métrica P@K e CG geralmente têm correlação alta com a satisfação do usuário em sistemas de busca Web, especialmente para os primeiros resultados.
+NDCG é considerada uma das métricas mais completas, pois considera a posição e o grau de relevância.
+MAP é muito usada em benchmarks (ex: TREC), mas pressupõe julgamento completo dos documentos — o que nem sempre é viável.
+BPREF é preferida quando os julgamentos são incompletos.
+
+| Métrica   | Nome completo                      | O que mede?                                                                                                              |
+| --------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **P\@K**  | Precision at K                     | Precisão nos **K primeiros** resultados.                                                                                 |
+| **CG**    | Cumulative Gain (Ganho Cumulativo) | Soma dos **ganhos (relevância)** dos documentos até a posição K.                                                         |
+| **DCG**   | Discounted Cumulative Gain         | CG onde documentos mais abaixo no rank têm **menos peso**.                                                               |
+| **NDCG**  | Normalized DCG                     | DCG **normalizado** para comparar entre diferentes queries.                                                              |
+| **MRR**   | Mean Reciprocal Rank               | Média do inverso da posição do **primeiro documento relevante**.                                                         |
+| **MAP**   | Mean Average Precision             | Média da **precisão em cada ponto relevante**, ao longo de várias queries.                                               |
+| **BPREF** | Binary Preference                  | Útil quando **nem todos os documentos foram julgados** (caso comum em RI real).                                          |
+| **UDCG**  | Unnormalized DCG                   | Termo menos comum; pode ser interpretado como o DCG não normalizado. Pode causar confusão — **melhor usar CG/DCG/NDCG.** |
+
+## Modelos de Recuperação
+
+### Modelo Booleano
+### Modelo VSM(Vector Space Model)
+### BM25
+### BM25F
+### Block Weighted BM25
+### GVSM
+### SDM (Sequential Dependence)
+### Set-Base Models
+
+
+## Algoritmos de Busca
+
+### PageRank
+### HITS (Kleinberg)
+### listas invertidas
+### TF-IDF
+### BM25 Scoring Function
+### BERT Ranking (neural)
+
+## Avaliações em RI
+As estratégias de avaliação e ajuste dos sistemas de recuperação da informação podem ser divididas em duas grandes categorias: online, que se baseiam no comportamento dos usuários, e offline, que analisam os próprios dados e documentos.
+Ambas são fundamentais para melhorar a precisão, relevância e personalização dos resultados
+
+**1. Online**
+| Estratégia                               | Descrição                                                                                                                          |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Frequência de cliques**                | Mede **quais resultados são clicados com mais frequência** após uma consulta — útil para inferir relevância.                       |
+| **CTR (Click-Through Rate)**             | Taxa de cliques por posição (P\@1, P\@3 etc.). Avalia a **eficácia do ranqueamento**.                                              |
+| **Padrões de consultas relacionadas**    | Analisa **similaridades entre consultas feitas por diferentes usuários**. Ex: reformulações frequentes podem indicar insatisfação. |
+| **Agrupamento de usuários (Clustering)** | Agrupa usuários por perfil de busca, histórico ou intenção, para **personalização dos resultados**.                                |
+| **Tempo de permanência (Dwell Time)**    | Tempo que o usuário passa em um documento após clicar. Pode indicar **qualidade percebida**.                                       |
+| **A/B Testing**                          | Testa diferentes algoritmos de ranking com usuários reais para comparar desempenho.                                                |
+
+**2. Offline**
+| Estratégia                                 | Descrição                                                                                                                                                                               |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Semelhança léxica com a consulta**       | Verifica se o documento contém **as mesmas palavras**, na **mesma ordem**, com **proximidade** relevante (n-gramas, BM25, etc.).                                                        |
+| **Análise da estrutura do documento**      | Identifica **campos importantes** como **título, subtítulo, resumo**, ou **destaques em negrito**, e aplica mais peso.                                                                  |
+| **Citações entre documentos**              | Similar à lógica do PageRank: documentos muito citados podem ser mais **relevantes ou confiáveis**.                                                                                     |
+| **Modelagem semântica**                    | Identifica **sinônimos, relações semânticas e contextos similares** usando:   - Word embeddings (ex: Word2Vec, GloVe)   - Ontologias (ex: WordNet)   - Transformers (ex: BERT) |
+| **Expansão de consulta (Query Expansion)** | Enriquecimento da consulta com **sinônimos, termos relacionados ou variantes ortográficas**, para aumentar o recall.                                                                    |
+| **Indexação inteligente**                  | Pré-processamento com **stemming, lematização**, ou **eliminação de stopwords** para melhorar o matching.                                                                               |
+
+## Operações de texto em RI
+### Stopwords 
+### Stemming
+### Lemmatization
+### Vetorização
+
+## Apache Lucene
+### Quem criou ?

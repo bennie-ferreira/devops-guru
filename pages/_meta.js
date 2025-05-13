@@ -3,11 +3,6 @@ export default {
     "architecture-design": 'Design e Arquitetura',
     "solutions-hacks": 'Soluções e Hacks',
     tools: 'Ferramentas',
-    python: 'Python',
-    java: 'Java',
-    go: 'Go',
-    "javascript-typescript": 'Javascript e Typescript',
-    php: 'PHP',
     bash: 'Bash',
     manifest: {
         title: 'Manifesto',
