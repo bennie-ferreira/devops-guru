@@ -1,5 +1,11 @@
 export default {
     introducao: {
-        title: 'Introdução',
+        title: 'Introdução 💬',
+    },
+    "arquitetura-hexagonal": {
+        title: 'Arquitetura Hexagonal 💬'
+    },
+    "arquitetura-saga": {
+        title: 'Arquitetura Saga 💬'
     }
 }

@@ -1,8 +1,15 @@
 import Image from 'next/image'
 
 <br />
-<div style={{ justifySelf: 'center', display: 'flex' }}>
-    <Image src="/devops-guru.svg" sizes="100vw" width={400} height={400} priority />
+
+<div style={{ position: 'relative', width: '100%', height: '400px' }}>
+  <Image
+    src="/devops-guru.svg"
+    alt="Devops guru"
+    fill
+    style={{ objectFit: 'contain' }}
+    priority
+  />
 </div>
 
 ## 🎯 Manifesto

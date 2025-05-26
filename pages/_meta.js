@@ -3,7 +3,6 @@ export default {
     "architecture-design": 'Design e Arquitetura',
     "solutions-hacks": 'Soluções e Hacks',
     tools: 'Ferramentas',
-    bash: 'Bash',
     manifest: {
         title: 'Manifesto',
         type: 'page',
