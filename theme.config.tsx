@@ -21,7 +21,7 @@ const config: DocsThemeConfig = {
         toggleButton: false,
     },
     toc: {
-        title: 'Tópicos',
+        title: 'Tópicos 🛸',
         // extraContent: <Supporters />,
     },
     head: function UseHead() {

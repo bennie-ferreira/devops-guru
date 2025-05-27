@@ -1,6 +1,8 @@
+import { Callout, Cards } from 'nextra/components'
+
 # O motor por trás do Elasticsearch, Opensearch, Solr e outros.
 
-> _"Hoje a tecnologia permite obter dados de praticamente todas as nossas atividades, como se nossos sentidos se tornassem mais aguçados. 
+> _"Hoje, a tecnologia permite obter dados de praticamente todas as nossas atividades, como se nossos sentidos se tornassem mais aguçados. 
 Pessoas e empresas podem então utilizar ferramentas para analisar esses dados a fim de fazer previsões, trabalhar melhor e competir com mais eficiência. 
 Esse é só o começo de uma era de ouro dos dados"_  
 > — **Doug Cutting**
@@ -9,35 +11,36 @@ Já imaginou viver em mundo aonde a informação não tem o seu valor ? isso é 
 já que vivemos hiperconectado nesta vasta rede de computadores ligados
 de ponto a ponto com os dados viajando em uma ponta a outra correndo na velocidade da luz em bits.
 
-E ainda mais que em 10 anos triplicou o número de dispositivos conectados à Internet e então só depois vieram novos conceitos e novas areas de estudos
-por causa do grande volume de informação, tudo é registrado cada acesso, cada log no seu sistema, cada mensagem que mandamos,
+E ainda mais que em 10 anos triplicou o número de dispositivos conectados à Internet e então só depois vieram novos conceitos e novas áreas de estudos devido ao grande volume de informação, 
+tudo é registrado cada acesso, cada log no seu sistema, cada mensagem que mandamos, 
 mesmo criptografado ou não a informação está cravado bit a bit e o dado nunca vai perder o seu valor.
 
-Com esse tanto de informação veio a necessidade de pesquisar, busca o que se procura e recuperar dados com mais eficiencia, vivemos em uma era de ouro 
-dos dados, aonde a informação é o principal ativo de grandes empresas e corporações ao redor do mundo, as guerras ciberneticas travadas na deep web
-ou na web normal sempre tem o objetivo rouba informação, sem informação não somos nada, imagine você que usa os modelos de IA todo dia e mal sabe
-o quanto de informação e dados precisou para 
-treinar.
+Com esse tanto de informação veio a necessidade de pesquisar, busca o que se procura e recuperar dados com mais eficiência, vivemos em uma era de ouro dos dados, 
+aonde a informação é o principal ativo de grandes empresas e corporações ao redor do mundo, as guerras cibernéticas travadas na deep web ou na web normal sempre tem o objetivo rouba informação,
+sem informação não somos nada, imagine você que usa os modelos de IA todo dia e mal sabe o quanto de informação e dados precisou para existir.
 
-Como diz o nosso saudoço colega Doug Cutting hoje a tecnologia permite obter dados de praticamente todas as nossas atividades, como se nossos sentidos se tornassem mais aguçados.
+Como diz o nosso saudoso colega Doug Cutting, hoje a tecnologia permite obter dados de praticamente todas as nossas atividades, como se nossos sentidos se tornassem mais aguçados.
 Pessoas e empresas podem então utilizar ferramentas para analisar esses dados a fim de fazer previsões, trabalhar melhor e competir com mais eficiência. 
 Esse é só o começo de uma era de ouro dos dados!
 
-## (RI) Recuperação da Informação
+## O que RI (Recuperação da Informação) ? 🚀
 
-RI (Retrivier Information) é uma área da computação cientifica que tem como principal tarefa de indentificar recuperar 
-de forma automatica a informação (normalmente contida por documentos textuais, registros...) esses documentos pode ser qualquer
-tipo de mídia (texto, imagem, som)
+RI (Retrivier Information) é uma área da computação científica que tem como principal tarefa identificar e recuperar de forma automática a informação (normalmente contida por documentos textuais, registros…).
+Esses documentos podem ser qualquer tipo de mídia (texto, imagem, som).
 
-A necessidade de informação pode ser especificada na forma de uma consulta de pesquisa. 
-No caso na RI, as consultas podem ser baseadas em texto completo ou outro tipo de indexação baseada em conteúdo. 
+Muitas áreas se beneficiam da RI, como Machine Learning, Segurança da Informação, Sistemas de buscas,
+Ciência de Dados, Engenharia de Busca entre outros.
 
-O objetivo é trazer melhores respostas, pois os sistemas tentam modela o significado do que está sendo buscado
-Todo sistema de recuperação da informação é também um sistema de recuperação de dados, mas o contrario nem sempre é verdade
+A necessidade de informação pode ser especificada na forma de uma consulta de pesquisa.
+No caso da RI, as consultas podem ser baseadas em texto completo ou outro tipo de indexação baseada em conteúdo.
+
+O objetivo é trazer melhores respostas, pois os sistemas tentam modelar o significado do que está sendo buscado e
+todo sistema de recuperação da informação é também um sistema de recuperação de dados, mas o contrário nem sempre é verdade.
 
 A ideia de usar computadores para pesquisar informações relevantes foi popularizado por **Vannevar Bush** em 1945 em um artigo chamado **As We May Think**
-na qual foi inspirado em patentes para uma máquina estatistica registrado por **Emanuel Golberg**, Bush acreditava que todo conhecimento
-humano pode ser coletado de uma forma mais acessivel e que na qual ele chamou de O Memex (amálgama de memory + index) foi uma máquina visionária imaginada para auxiliar a memória e guardar conhecimentos. 
+na qual foi inspirado em patentes para uma máquina estatistica registrado por **Emanuel Golberg**.
+
+**Bush** acreditava que todo conhecimento humano pode ser coletado de uma forma mais acessivel, com isso em mente ele criou uma maquina que na qual ele chamou de O Memex (amálgama de memory + index) foi uma máquina visionária imaginada para auxiliar a memória e guardar conhecimentos. 
 
 Esse video é uma ilustração da maquina Memex de **Vannevar Bush**
 
@@ -48,38 +51,213 @@ Esse video é uma ilustração da maquina Memex de **Vannevar Bush**
 />
 
 
-Observando o funcionamento da mente humana, segundo ele, operando sempre por meio de associações, Bush imaginou e descreveu de maneira detalhada uma máquina capaz de estocar montanhas de informação, para posterior e rápida recuperação.
+Observando o funcionamento da mente humana, segundo ele, operando sempre por meio de associações, **Bush** imaginou e descreveu de maneira detalhada uma máquina capaz de estocar montanhas de informação, para posterior e rápida recuperação.
 
-Ao longo dos anos o Departamento de Defesa dos EUA, juntamente com o [**Instituto Nacional de Padrões e Tecnonologia (NIST)**](https://www.nist.gov),
-copatrocinou a [**Conferencia de Recuperação de Texto (TREC)**](https://trec.nist.gov) que é ativo até hoje e que mais tarde trouxe grandes inovações na area de RI juntamente com algoritmos
-que fora evoluido e até se tornarem quase que um padrão no mercado mais tarde.
+Ao longo dos anos, o Departamento de Defesa dos EUA, juntamente com o [**Instituto Nacional de Padrões e Tecnologia (NIST)**](https://www.nist.gov),
+copatrocinou a [**Conferência de Recuperação de Texto (TREC)**](https://trec.nist.gov) que é ativa até hoje e que mais tarde trouxe grandes inovações na área de RI juntamente com algoritmos que foram evoluídos e até se tornaram quase que um padrão no mercado mais tarde.
 
 Varios inovações aconteceram pelo caminho ao longo do tempo até chegarmos nos anos 90 com a ascensão do
-World Wide Web que transformou a recuperação de informações em outro patamar com varios sites de busca como AltaVista como 
+World Wide Web que transformou a recuperação de informações em outro patamar com varios sites de busca como [AltaVista](https://en.wikipedia.org/wiki/AltaVista) como 
 o primeiro banco de dados de texto completo pesquisável na internet com uma interface simples mas funcional
-e com consultas basicas com paginações e filtros aonde começou fazer sucesso, mais tarde veio Yahoo que ofereciam na epoca 
+e com consultas basicas com paginações e filtros aonde começou fazer sucesso, mais tarde veio **Yahoo** que ofereciam na época 
 recuperação baseada em palavras-chave, tanto Yahoo e o AltaVista eram limitados em escala e não tinha refinamento de classificação e outros tipos de consultas mais 
-relevantes para os usuários e 4 anos depois veio o o grandiosso Google abalando a web com o algoritmo **PageRank** que é usado até hoje
-com um sistema de hiperlinks da web para avaliação de importancia melhora na classificação de relevância.
+relevantes para os usuários.
 
-Anos 2000 os sistemas de busca na web evoluiram com varias tecnicas de aprendizado de maquina e depois Google passou a usar os dados 
-dos proprios usuários para melhorar suas pesquisa e consultas utilizando para buscas com relevencia afim de entender um contexto maior e 
-abrangente saindo de uma pesquisa tão literal e corrigindo problemas de ambiguidades em suas consultas.
+Quatro anos depois, veio o Google, abalando a web com o algoritmo PageRank, que é usado até hoje com um sistema de hiperlinks da web para avaliação de importância e melhora na classificação de relevância.
 
-No ano de 2018 começaram a implementar modelos de aprendizado de maquina para RI sendo um divisor de águas no mercado.
+Nos anos 2000, os sistemas de busca na web evoluíram com várias técnicas de aprendizado de máquina e depois o Google passou a usar os dados,
+dos próprios usuários para melhorar suas pesquisas e consultas, utilizando para buscas com relevância a fim de entender um contexto maior e 
+abrangente, saindo de uma pesquisa tão literal e corrigindo problemas de ambiguidades em suas consultas.
 
-Hoje a RI é usado em varias areas, como segunrança da informação, IA, sistemas de buscas entre outros que visam usar as suas bases conceituais 
-e conhecimento
+No ano de 2018, começaram a implementar modelos de aprendizado de máquina para RI, sendo um divisor de águas no mercado.
 
-## Metricas para avaliação de RI
-### Precisão e Revocação
+## Metricas para avaliação de RI 🚀
+Uma coisa muito importante quando queremos um sistema que traga “bons resultados” é saber como comparar 2 sistemas. Por isso, avaliação é uma área bastante estudada em RI.
 
-Começa aqui a jornada
+Primeira etapa é a avaliação e segunda etapa é definir as métricas, mas primeiro vamos começar pelas métricas 
+para compreender os principais conceitos.
 
-### P@K (Precision at K)
-### CG (Cumulative Gain (Ganho Cumulativo))
+### Precisão e Revocação 📌
+
+#### 1. **Precisão** 📌 
+É quanto mais respostas boas nos resultados que o RI apresentou em relação ao total de resultados.
+
+Ex: se o sistema traz 2 resultados e esses dois são bons, então significa que é 100% preciso. Mas se o sistema traz 100 resultados e 2 são bons, ele foi pouco preciso,
+então a precisão tem a ver com resultados relevantes apresentados.
+
+Fórmula:
+
+$$
+\text{Precisão} = \frac{\text{número de documentos relevantes recuperados}}{\text{número total de documentos recuperados}}
+$$
+
+Imagine que você fez uma busca e o sistema retornou 10 documentos, dos quais:
+- 7 são relevantes  
+- 3 não são relevantes
+
+Então:
+$$
+\text{Precisão} = \frac{7}{10} = 0{,}7 \quad \text{ou} \quad 70\%
+$$
+
+
+#### 2. **Revocação** 📌
+É o que poderia ser chamado de cobertura mas na literatura vai encontrar como **Revocação**, que nada mais é o quanto que foi coberto em relação ao total de relevantes.
+
+$$
+\text{Precisão} = \frac{\text{número de documentos relevantes recuperados}}{\text{número total de documentos relevantes recuperados}}
+$$
+
+Imagine que existem **20 documentos relevantes** no total em um sistema.
+
+Você faz uma busca e o sistema retorna **10 documentos**, sendo:
+
+- 6 deles são relevantes  
+- 4 não são relevantes
+
+Cálculo:
+
+$$
+\text{Revocação} = \frac{6}{20} = 0{,}3 \quad \text{ou} \quad 30\%
+$$
+
+Agora o sistema retorna **18 documentos**, sendo:
+
+- Todos os 18 são relevantes
+
+Cálculo:
+
+$$
+\text{Revocação} = \frac{18}{20} = 0{,}9 \quad \text{ou} \quad 90\%
+$$
+
+O sistema retorna **100 documentos**, sendo:
+
+- 20 são relevantes  
+- 80 são irrelevantes
+
+Cálculo:
+
+$$
+\text{Revocação} = \frac{20}{20} = 1{,}0 \quad \text{ou} \quad 100\%
+$$
+
+$$
+\text{Precisão} = \frac{20}{100} = 0{,}2 \quad \text{ou} \quad 20\%
+$$
+
+### P@K (Precision at K) 📌
+
+Na prática, os usuários raramente olham além dos primeiros resultados.
+Por isso, avaliar a precisão nos primeiros K resultados (em vez de todos) é mais realista e útil.
+
+Ela é simples de calcular e interpretar, tornando-se uma métrica de diagnóstico muito prática para desenvolvedores e cientistas de dados.
+
+Suponha que um sistema de busca retorna os 10 primeiros documentos assim (R = relevante, I = irrelevante):
+
+Formula:
+
+$$
+\text{P@K} = \frac{\text{Número de documentos relevantes nos K primeiros resultados}}{K}
+$$
+
+- \( K \): número de documentos considerados no topo da lista  
+- Resultados fora do top \( K \) **não são considerados**
+
+Onde:
+- `R` = Relevante  
+- `I` = Irrelevante
+
+Agora calculemos:
+
+---
+
+🔹 P@1
+
+Apenas o **1º resultado** é considerado:
+
+- 1 relevante
+
+$$
+\text{P@1} = \frac{1}{1} = 1{,}0
+$$
+
+---
+
+🔹 P@3
+
+Os **3 primeiros resultados** são:
+
+[ R, R, I ] → 2 relevantes
+
+$$
+\text{P@3} = \frac{2}{3} ≈ 0{,}67
+$$
+
+---
+
+🔹 P@5
+
+Os **5 primeiros resultados** são:
+
+[ R, R, I, R, I ] → 3 relevantes
+
+$$
+\text{P@5} = \frac{3}{5} = 0{,}6
+$$
+
+Em competições como TREC ou benchmarks como MS MARCO, o P@K é uma métrica básica, mas essencial para entender a **qualidade do ranqueamento**.
+
+Em sistemas que usam aprendizado de máquina para ordenar resultados (ex: rankers com modelos de aprendizado supervisionado), P@K ajuda a entender se o modelo está colocando os documentos certos no topo.
+
+### CG (Cumulative Gain (Ganho Cumulativo)) 📌
+
+Surgiu no contexto de sistemas de recomendação e motores de busca no início dos anos 2000.
+
+Foi usado por pesquisadores como **Järvelin** e **Kekäläinen** em 2002 no famoso artigo [Cumulated gain-based evaluation of IR techniques](https://faculty.cc.gatech.edu/~zha/CS8803WST/dcg.pdf).
+
+Tornou-se base para métricas modernas como nDCG, muito usadas em benchmarks como TREC e MS MARCO.
+
+Uma métrica em que documentos da resposta são substituidos pelos seus graus de relevância: [3, 0, 1, 2, 4, 0, 0, 1]
+
+---
+
+O CG leva em consideração a relevância, mas não a posição e isso gerou uma discurção em um artigo, 
+questionando a posição dos documentos e os autores logo incluiram depois o [DCG](/tools/apache-lucene#dcg-discounted-cumulative-gain)
+
+🔹Exemplo 1:
+
+$$
+\text{CG@K} = \sum_{i=1}^{K} rel_i
+$$
+
+- \( rel_i \): grau de relevância do documento na posição \( i \)  
+- \( K \): número de documentos considerados
+
+---
+
+🔹Exemplo 2:
+
+$$
+\text{CG@5} = 3 + 2 + 3 + 0 + 1 = 9
+$$
+
+> O sistema acumulou **9 pontos de relevância** nos 5 primeiros resultados.
+
+- CG **mede apenas a soma da relevância** dos documentos.  
+- Ele **não se importa com a posição** do documento relevante na lista.  
+- Um documento muito relevante na posição 1 ou 10 **contribui o mesmo**.
+
+<Callout type="warning" emoji="⚠️"> Isso pode ser um problema em contextos onde a **ordem dos resultados importa**, por isso o **CG** é normalmente usado como base para métricas melhores como o **DCG** e **nDCG**</Callout>
+
+- **DCG (Discounted Cumulative Gain)** → considera a posição dos resultados  
+- **nDCG (Normalized DCG)** → normaliza o DCG para comparações justas
+
 ### DCG (Discounted Cumulative Gain)
 ### NDCG (Normalized DCG)
+É a métrica mais usada hoje em dia para avaliar sistemas de buscas, pois permite o uso 
+de níveis de relevância (nota para cada doc), leva em conta a posição em que docs aparecem.
+
 ### MRR (Mean Recriprocal Rank)
 ### MAP (Mean Average Precision)
 ### BPREF (Binary Preference)

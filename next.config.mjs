@@ -29,8 +29,9 @@ const nextConfig = {
 }
 
 const withNextra = nextra({
+  latex: true,
   theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
+  themeConfig: './theme.config.tsx'
 })
 
 export default withNextra(nextConfig)
