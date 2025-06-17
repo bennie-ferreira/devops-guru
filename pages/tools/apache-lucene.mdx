@@ -427,9 +427,180 @@ $$
 <Callout type="warning" emoji="⚠️"> **CG** e **P@K** correlacionam melhor com satisfação do usuário do que o NDCG na avaliação de máquinas de busca pra Web </Callout>
 
 
-### MRR (Mean Recriprocal Rank)
-### MAP (Mean Average Precision)
-### BPREF (Binary Preference)
+### MRR (Mean Reciprocal Rank) 📌
+
+O **MRR** é a **média do inverso da posição do primeiro resultado relevante**.  
+É uma métrica simples e eficaz para medir a **eficácia de sistemas de busca com uma única resposta correta por consulta** — como em sistemas de perguntas e respostas (QA), por exemplo.
+
+---
+
+**Fórmula:**
+MRR = (1 / |Q|) * Σ (1 / rank_i)
+
+
+Onde:  
+- `|Q|` é o número total de consultas.  
+- `rank_i` é a posição do primeiro resultado relevante para a consulta `i`.
+
+---
+
+**Exemplo com 3 consultas:**
+
+- Consulta 1 → documento relevante na posição 1 → `1 / 1 = 1.0`  
+- Consulta 2 → documento relevante na posição 3 → `1 / 3 ≈ 0.333`  
+- Consulta 3 → documento relevante na posição 2 → `1 / 2 = 0.5`
+
+---
+
+**Cálculo do MRR:**
+
+MRR = (1.0 + 0.333 + 0.5) / 3 ≈ 0.611
+
+
+---
+
+✅ Isso significa que, em média, o **primeiro documento relevante apareceu entre a 1ª e 2ª posição**.
+
+> 💡 O MRR varia entre 0 e 1, sendo 1 o melhor valor (resposta correta sempre na 1ª posição).
+
+<Callout type="info" emoji="💡">
+  MRR é ideal para tarefas onde <strong>só importa o primeiro acerto</strong>, como QA, chatbots, ou busca por nomes únicos.
+</Callout>
+
+
+### MAP (Mean Average Precision) 📌
+
+O **MAP** é a média das precisões obtidas **a cada ponto de relevância** nos rankings retornados por um sistema de busca.  
+É uma métrica robusta e muito usada quando existem **vários documentos relevantes por consulta**.
+
+---
+
+**Como funciona:**
+
+1. Para cada consulta, calcula-se a **Average Precision (AP)** — ou seja, a **média das precisões nos pontos onde documentos relevantes aparecem**.
+2. Depois, o MAP é a **média de todas as APs** entre as consultas.
+
+---
+
+**Fórmula da Average Precision para uma consulta:**
+
+AP = (1 / R) * Σ [ P@k ] para cada posição k onde há um documento relevante
+
+
+Onde:  
+- `R` é o número total de documentos relevantes para a consulta.  
+- `P@k` é a precisão calculada até a posição `k` (Precision@k).
+
+---
+
+**Fórmula do MAP (Mean Average Precision):**
+
+MAP = (1 / Q) * Σ [ AP_i ] para i = 1 até Q
+
+
+Onde:  
+- `Q` é o número de consultas.  
+- `AP_i` é a Average Precision da i-ésima consulta.
+
+---
+
+**Exemplo com 2 consultas:**
+
+1. Consulta 1:  
+   Relevância dos documentos no ranking → `[1, 0, 1, 1, 0]`  
+   - P@1 = 1.0 (1 relevante em 1)  
+   - P@3 = 2/3 ≈ 0.667  
+   - P@4 = 3/4 = 0.75  
+   - AP = (1.0 + 0.667 + 0.75) / 3 ≈ 0.806
+
+2. Consulta 2:  
+   Relevância dos documentos → `[0, 1, 1, 0, 1]`  
+   - P@2 = 1/2 = 0.5  
+   - P@3 = 2/3 ≈ 0.667  
+   - P@5 = 3/5 = 0.6  
+   - AP = (0.5 + 0.667 + 0.6) / 3 ≈ 0.589
+
+---
+
+**Cálculo do MAP:**
+
+MAP = (0.806 + 0.589) / 2 ≈ 0.698
+
+
+---
+
+✅ Isso significa que, em média, o sistema teve **quase 70% de precisão nos pontos relevantes dos rankings**.
+
+> 💡 MAP varia de 0 a 1, sendo 1 o valor ideal.
+>
+> Ele é excelente para avaliar **quanto cedo e com que frequência documentos relevantes aparecem** em buscas com múltiplas respostas corretas.
+
+<Callout type="info" emoji="📚">
+  MAP é ideal para tarefas como recuperação de documentos, busca por imagens, ou sistemas onde mais de um item relevante pode existir por consulta.
+</Callout>
+
+
+### BPREF (Binary Preference) 📌
+
+O **BPREF** é uma métrica de avaliação usada quando **nem todos os documentos relevantes foram julgados**.  
+Ela é útil em cenários onde a **incompletude dos julgamentos** é um problema — por exemplo, quando temos apenas alguns documentos avaliados manualmente.
+
+---
+
+**Motivação:**
+
+Métricas como **MAP** assumem que todos os documentos foram julgados como relevantes ou não, o que nem sempre acontece.  
+O **BPREF** lida melhor com essa limitação, considerando apenas os **documentos relevantes e não relevantes que foram efetivamente julgados**.
+
+---
+
+**Fórmula simplificada:**
+BPREF = (1 / R) * Σ [ 1 - (# de não relevantes antes do relevante r) / R ]
+
+
+Onde:  
+- `R` é o número de documentos relevantes julgados.  
+- Para cada documento relevante `r`, conta-se quantos documentos **não relevantes julgados** vieram **antes dele** no ranking.
+
+---
+
+**Exemplo:**
+
+Suponha que temos 6 documentos retornados no ranking:
+
+Ranking: [D1, D2, D3, D4, D5, D6]
+Relevância: [ 1 , 0 , 0 , 1 , ? , 1 ]
+
+
+- `D1`, `D4`, `D6` são julgados como relevantes (✓).  
+- `D2`, `D3` são julgados como não relevantes (✗).  
+- `D5` não foi julgado.
+
+---
+
+Cálculo:
+
+- Para `D1`: 0 não relevantes antes → `1 - (0 / 3) = 1.0`  
+- Para `D4`: 2 não relevantes antes → `1 - (2 / 3) ≈ 0.333`  
+- Para `D6`: 2 não relevantes antes → `1 - (2 / 3) ≈ 0.333`
+
+BPREF = (1.0 + 0.333 + 0.333) / 3 ≈ 0.555
+
+
+---
+
+✅ Isso indica que, apesar dos documentos relevantes existirem, **há muitos não relevantes aparecendo antes** deles no ranking.
+
+> 💡 BPREF é mais robusto que MAP e nDCG em situações com **julgamentos parciais**.
+> 
+> É comum em grandes coleções como TREC, onde nem todos os documentos são avaliados.
+
+<Callout type="warning" emoji="⚠️">
+  BPREF só considera documentos julgados.  
+  Documentos não avaliados **são ignorados** — o que evita penalizações injustas.
+</Callout>
+
+
 ### UDCG (Unnormalized DCG)
 
 ### Observações importantes
