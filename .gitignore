@@ -7,6 +7,9 @@ pages/research/local_research/
 .DS_Store
 .vscode
 .idea
+out
+./out
+/out
 
 # app
 .next
