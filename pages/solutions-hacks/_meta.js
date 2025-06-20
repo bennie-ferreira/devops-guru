@@ -1,7 +1,4 @@
 export default {
-    introducao: {
-        title: "Introdução"
-    },
     "docker-em-primeira-viagem": {
         title: 'Docker de primeira viagem 💬',
     },

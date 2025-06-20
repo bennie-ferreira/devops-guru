@@ -27,7 +27,7 @@ const config: DocsThemeConfig = {
         const { title } = useConfig()
         return (
             <>
-                <title>{title ? title + ' | Devops Guru': 'Devops Guru'} </title>
+                <title>{title == 'Index' ? '💚 Devops Guru' : (title + ' | Devops Guru')} </title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta property="og:title" content="Devops Guru" />
                 <meta property="og:description" content="Devops Guru" />
