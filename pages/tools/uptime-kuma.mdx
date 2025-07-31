@@ -1,0 +1,167 @@
+import Image from 'next/image'
+
+# Monitoramento de Serviços de Forma Simples e Poderosa
+
+No mundo moderno da tecnologia, garantir que os serviços estejam sempre ativos é essencial. 
+Seja um site pessoal, uma API corporativa ou um microserviço em ambiente de produção, a disponibilidade constante é um requisito fundamental. Para isso, ferramentas de monitoramento são essenciais. Neste artigo, exploraremos a fundo o Uptime Kuma, uma das soluções open source mais populares da atualidade para monitoramento de serviços.
+Vamos entender sua história, funcionalidades, como utilizá-lo e por que ele se tornou tão relevante.
+
+## A História do Uptime Kuma
+
+O Uptime Kuma foi lançado por Louis Lam, um desenvolvedor independente, no GitHub em 2021. Inspirado por serviços comerciais como o Uptime Robot, Louis decidiu criar uma alternativa open source, gratuita e autohospedada, para que qualquer pessoa pudesse monitorar seus serviços de forma privada e eficiente.
+A filosofia do projeto sempre foi baseada em:
+
+- Simplicidade de uso
+- Interface moderna e acessível
+- Alta extensibilidade
+- Código-fonte aberto e mantido pela comunidade
+
+Desde o seu lançamento, o Uptime Kuma ganhou popularidade rapidamente por ser fácil de instalar, versátil e confiável. Ele passou a competir diretamente com soluções comerciais, conquistando uma grande base de usuários em servidores pessoais, pequenas empresas e até ambientes corporativos.
+
+<br/>
+<Image
+  src="/dashboard-uptime-kuma.jpg"
+  alt="Uptime kuma"
+  width={1200}
+  height={675}
+  style={{ maxWidth: '100%', height: 'auto' }}
+  priority
+/>
+
+## Funcionalidades Principais
+
+O Uptime Kuma oferece um conjunto robusto de funcionalidades:
+
+### Tipos de monitoramento suportados
+- HTTP/HTTPS (GET, POST, HEAD)
+- TCP
+- ICMP (Ping)
+- DNS
+- Serviços personalizados via scripts
+- Monitoramento por porta (para serviços como Redis, MySQL, etc.)
+
+### Interface intuitiva
+
+A UI é baseada em Vue.js e é extremamente responsiva. O dashboard mostra o status em tempo real de todos os serviços monitorados com gráficos, histórico e métricas.
+
+### Alertas e notificacões
+
+Integração com Telegram, Discord, Slack, Pushover, Gotify, e-mails e outros
+Notificações configuráveis por serviço
+Possibilidade de configurar a tolerância a falhas e tempo de rechecagem
+
+### 4. Multiusuário com autenticação
+
+Suporte a autenticação por senha ou via JWT
+Controle de acesso baseado em usuário (ainda em evolução)
+
+### Modo público (status page)
+
+Crie páginas de status para compartilhar com clientes ou usuários finais
+Personalizáveis com logotipo, tema e serviços específicos
+
+<br/>
+<Image
+  src="/status-page-uptime-kuma.png"
+  alt="Uptime kuma"
+  width={1200}
+  height={675}
+  style={{ maxWidth: '100%', height: 'auto' }}
+  priority
+/>
+
+## Casos de Uso
+
+Por ser uma ferramenta poderosa para monitoramento de disponibilidade que se adapta a diversos contextos — desde ambientes de desenvolvimento locais até estruturas corporativas com múltiplos ambientes.
+Abaixo estão alguns dos cenários mais comuns onde ele pode ser aplicado com eficiência:
+- Monitorar servidores web, bancos de dados, brokers de mensagens (como RabbitMQ)
+- Monitorar serviços em ambientes Dev, Stage e Prod
+- Monitoramento de APIs internas com autenticação
+- Uso em ambientes CI/CD para garantir disponibilidade dos ambientes
+- Vantagens do Uptime Kuma
+- 100% gratuito e open source
+- Leve e com baixo consumo de recursos
+- Visual moderno e prático
+- Pode ser hospedado em qualquer VPS ou em ambiente local
+- Extensível via plugins e scripts
+- Forte apoio da comunidade com atualizações constantes
+
+## Instalação Simples
+
+🐳 Via Docker
+```bash
+docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1
+```
+
+☸️ Via Kubernetes com ingress traefik
+```md
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: uptime-kuma-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uptime-kuma
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uptime-kuma
+  template:
+    metadata:
+      labels:
+        app: uptime-kuma
+    spec:
+      containers:
+        - name: uptime-kuma
+          image: louislam/uptime-kuma:latest
+          ports:
+            - containerPort: 3001
+          volumeMounts:
+            - name: kuma-data
+              mountPath: /app/data
+      volumes:
+        - name: kuma-data
+          persistentVolumeClaim:
+            claimName: uptime-kuma-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: uptime-kuma
+spec:
+  selector:
+    app: uptime-kuma
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3001
+  type: ClusterIP
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: uptime-kuma
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`kuma.dev.meuservidor.local`)
+      kind: Rule
+      services:
+        - name: uptime-kuma
+          port: 80
+
+```
+🚀 Executando manifesto
+```bash
+kubectl apply -f uptime-kuma.yaml
+```
